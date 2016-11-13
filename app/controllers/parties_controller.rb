@@ -30,6 +30,7 @@ class PartiesController < ApplicationController
 
     respond_to do |format|
       if @party.save
+        @party.create_location(location_params[:location_attributes])
         format.html { redirect_to @party, notice: 'Party was successfully created.' }
         format.json { render :show, status: :created, location: @party }
       else
@@ -44,6 +45,7 @@ class PartiesController < ApplicationController
   def update
     respond_to do |format|
       if @party.update(party_params)
+        @party.update_location(location_params[:location_attributes])
         format.html { redirect_to @party, notice: 'Party was successfully updated.' }
         format.json { render :show, status: :ok, location: @party }
       else
@@ -71,6 +73,10 @@ class PartiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def party_params
-      params.require(:party).permit(:theme, :date, :time, :rsvp_deadline, :address, :user_id)
+      params.require(:party).permit(:theme, :date, :time, :rsvp_deadline, :address)
+    end
+
+    def location_params
+      params.require(:party).permit(:location_attributes =>[:address, :latitude, :longitude])
     end
 end

@@ -10,7 +10,6 @@
       <th>Time</th>
       <th>Rsvp deadline</th>
       <th>Address</th>
-      <th>User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,8 +21,7 @@
         <td><%= party.date %></td>
         <td><%= party.time %></td>
         <td><%= party.rsvp_deadline %></td>
-        <td><%= party.address %></td>
-        <td><%= party.user %></td>
+        <td><%= party.location.address unless party.location.nil? %></td>
         <td><%= link_to 'Show', party %></td>
         <td><%= link_to 'Edit', edit_party_path(party) %></td>
         <td><%= link_to 'Destroy', party, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -33,6 +33,12 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise' #gem for authentication
 gem 'omniauth-facebook' #gem fro facebook authentication
 
+#Google maps gems
+gem 'gmaps4rails' #google maps gem
+gem 'underscore-rails' # dependency for google maps gem
+gem 'geocoder' #geocoding api to get latitude and longitude information for the models.
+
+
 group :development, :test do
   gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
