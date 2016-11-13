@@ -45,7 +45,7 @@ class PartiesController < ApplicationController
   def update
     respond_to do |format|
       if @party.update(party_params)
-        @party.update_location(location_params[:location_attributes])
+        @party.location.update_attributes(location_params[:location_attributes])
         format.html { redirect_to @party, notice: 'Party was successfully updated.' }
         format.json { render :show, status: :ok, location: @party }
       else
