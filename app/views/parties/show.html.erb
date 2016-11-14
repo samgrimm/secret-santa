@@ -30,6 +30,9 @@
 
  <div id="map" style="height: 500px; width: 500px; margin: auto;"></div>
 <% end %>
+
+<p><%= link_to "Add Invitees", new_party_invitation_path(@party) %></p>
+<%= link_to pluralize(@party.invitations.size, 'invitation'), party_invitations_path(@party) %> |
 <%= link_to 'Edit', edit_party_path(@party) %> |
 <%= link_to 'Back', parties_path %>
 

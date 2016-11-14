@@ -33,13 +33,9 @@
 
   <div class="field">
     <%= f.fields_for :location_attributes do |ff| %>
+      <%= ff.label :address %>
       <%= ff.text_field :address ,  placeholder: "enter party location" %>
     <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
   </div>
 
   <div class="actions">

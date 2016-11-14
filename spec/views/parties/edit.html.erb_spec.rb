@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe "parties/edit", :type => :view do
   before(:each) do
+    @user = FactoryGirl.create(:user)
     @party = assign(:party, Party.create!(
       :theme => "MyString",
-      :address => "MyString",
-      :user => nil
+      :organizer => @user
     ))
   end
 
@@ -16,9 +16,7 @@ RSpec.describe "parties/edit", :type => :view do
 
       assert_select "input#party_theme[name=?]", "party[theme]"
 
-      assert_select "input#party_address[name=?]", "party[address]"
-
-      assert_select "input#party_user_id[name=?]", "party[user_id]"
+  
     end
   end
 end

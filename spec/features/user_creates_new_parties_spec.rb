@@ -19,7 +19,7 @@ feature "UserCreatesNewParties", :type => :feature do
     expect(page).to have_css( '.notice', 'You have created a new party')
     expect(Party.all.count).to eq(1)
     expect(Party.last.theme).to eq("New Year's Eve")
-    expect(Party.last.user).to eq(@user)
+    expect(Party.last.organizer).to eq(@user)
   end
 
   scenario 'logged in user creates a new party' do

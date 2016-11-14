@@ -4,7 +4,6 @@ FactoryGirl.define do
     date "2016-11-12"
     time "2016-11-12 15:06:32"
     rsvp_deadline "2016-11-12"
-    address "MyString"
-    user nil
+    association :organizer
   end
 end

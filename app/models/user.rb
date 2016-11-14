@@ -5,7 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
-  has_many :parties       
+  validates :email, presence: true, uniqueness: { case_sensitive: false }
+  has_many :parties, foreign_key: "organizer_id"
+  has_many :invitations
 
 
   def self.from_omniauth(auth)

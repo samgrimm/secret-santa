@@ -11,6 +11,7 @@ class PartiesController < ApplicationController
   # GET /parties/1
   # GET /parties/1.json
   def show
+    @invitation = Invitation.new(:party => @party)
   end
 
   # GET /parties/new

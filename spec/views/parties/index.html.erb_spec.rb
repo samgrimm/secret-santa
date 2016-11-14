@@ -2,16 +2,15 @@ require 'rails_helper'
 
 RSpec.describe "parties/index", :type => :view do
   before(:each) do
+    @user = FactoryGirl.create(:user)
     assign(:parties, [
       Party.create!(
         :theme => "Theme",
-        :address => "Address",
-        :user => nil
+        :organizer => @user
       ),
       Party.create!(
         :theme => "Theme",
-        :address => "Address",
-        :user => nil
+        :organizer => @user
       )
     ])
   end
@@ -19,7 +18,5 @@ RSpec.describe "parties/index", :type => :view do
   it "renders a list of parties" do
     render
     assert_select "tr>td", :text => "Theme".to_s, :count => 2
-    assert_select "tr>td", :text => "Address".to_s, :count => 2
-    assert_select "tr>td", :text => nil.to_s, :count => 2
   end
 end
