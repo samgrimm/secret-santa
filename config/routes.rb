@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     resources :invitations
   end
 
+  get "/contacts/:importer/callback" => "invitations#callback"
 
+  get "/contacts/failure" => "invitations#failure"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

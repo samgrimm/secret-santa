@@ -1,3 +1,7 @@
+
+<b>List of contacts of <%=@user[:email]%> obtained from gmail:</b>
+
+
 <%= form_for [@party, @invitation] do |f| %>
   <% if @invitation.errors.any? %>
     <div id="error_explanation">
@@ -13,8 +17,7 @@
 
   <div class="field">
     <%= f.fields_for :user_attributes do |ff| %>
-      <%= ff.label :email %>
-      <%= ff.text_area :email %>
+    <%= ff.collection_check_boxes(:email_list, @emails, :last, :last) %>
     <% end %>
   </div>
 
