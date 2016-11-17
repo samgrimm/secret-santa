@@ -66,6 +66,17 @@ class PartiesController < ApplicationController
     end
   end
 
+  def draw_names
+    @party = Party.find(params[:id])
+    @party.invitations.each do |invite|
+      pool = @party.invitations.map(&:user).flatten
+      pool.delete(invite.user)
+      rando = pool.sample
+      invite.update_attributes(receipient: rando)
+    end
+    redirect_to @party, notice: 'Names Drawn Successfully.'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_party

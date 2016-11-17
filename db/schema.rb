@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161114134956) do
+ActiveRecord::Schema.define(version: 20161116205540) do
 
   create_table "invitations", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "party_id"
     t.boolean  "rsvp"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "receipient_id"
     t.index ["party_id"], name: "index_invitations_on_party_id"
     t.index ["user_id"], name: "index_invitations_on_user_id"
   end
@@ -58,6 +59,7 @@ ActiveRecord::Schema.define(version: 20161114134956) do
     t.datetime "updated_at",                          null: false
     t.string   "provider"
     t.string   "uid"
+    t.integer  "invitation_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

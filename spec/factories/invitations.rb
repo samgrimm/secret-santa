@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :invitation do
-    user nil
-    party nil
+    association :user
+    association :party
     rsvp false
   end
 end
