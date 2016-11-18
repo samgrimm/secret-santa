@@ -39,6 +39,9 @@ class InvitationsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   def callback
     @party = Party.find(1)
     @invitation = @party.invitations.build

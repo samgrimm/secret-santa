@@ -5,7 +5,8 @@ class PartiesController < ApplicationController
   # GET /parties
   # GET /parties.json
   def index
-    @parties = Party.all
+    @parties = Party.where(organizer_id: current_user.id)
+    @invitations = current_user.invitations
   end
 
   # GET /parties/1
@@ -72,7 +73,10 @@ class PartiesController < ApplicationController
       pool = @party.invitations.map(&:user).flatten
       pool.delete(invite.user)
       rando = pool.sample
-      invite.update_attributes(receipient: rando)
+      while !invite.update_attributes(receipient: rando) do
+        new_rando = pool.sample
+        invite.update_attributes(receipient: new_rando)
+      end
     end
     redirect_to @party, notice: 'Names Drawn Successfully.'
   end

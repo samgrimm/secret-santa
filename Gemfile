@@ -53,6 +53,7 @@ group :test do
   gem 'shoulda-matchers', require: false
   gem 'rails-controller-testing'
   gem 'database_cleaner'
+  gem "launchy"
 end
 
 group :development do

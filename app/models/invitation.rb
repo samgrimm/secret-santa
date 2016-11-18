@@ -14,4 +14,14 @@ class Invitation < ApplicationRecord
       errors.add(:receipient, "can't be the same as the user")
     end
   end
+
+  def rsvp_status
+    if rsvp.nil?
+      return "Not Yet Replied"
+    elsif rsvp
+      return "Attending"
+    else
+      return "Not Attending"
+    end
+  end
 end

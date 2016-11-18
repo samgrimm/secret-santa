@@ -1,3 +1,4 @@
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -21,14 +22,14 @@
 </p>
 
 <p>
-  <strong>Invitations | <%= link_to pluralize(@party.invitations.size, 'invitation'), party_invitations_path(@party) %> | <%= link_to 'Draw Names', draw_names_path(@party) %></strong>
+  <strong>Guest List | <%= link_to pluralize(@party.invitations.size, 'Guest'), party_invitations_path(@party) %> | <%= link_to 'Draw Names', draw_names_path(@party) %> | Send Invites </strong>
   <table>
     <thead>
       <tr>
         <th>Email</th>
         <th>Rsvp Status</th>
         <th>Gift receipient</th>
-        <th>Remove Invite</th>
+        <th>Remove From Guest List</th>
       </tr>
     </thead>
 
@@ -36,9 +37,10 @@
       <% @party.invitations.each do |invite| %>
         <tr>
           <td><%= invite.user.email %></td>
-          <td><%= invite.rsvp %></td>
+          <td><%= invite.rsvp_status %></td>
           <td><%= invite.receipient.email unless invite.receipient.nil? %></td>
-          <td><%= link_to 'Remove Invitation', [@party, invite], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'See invite', party_invitation_path(@party, invite) %></td>
+          <td><%= link_to 'Remove from Guest List', [@party, invite], method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
@@ -59,12 +61,13 @@
 <% end %>
 
 <p><%= link_to "Add Invitees", new_party_invitation_path(@party) %> | <% link = "/contacts/gmail/" %>
-<a href=<%=link %>>Import Invitees from Gmail</a></p> 
+<a href=<%=link %>>Import Invitees from Gmail</a></p>
 
 
 
 <%= link_to 'Edit', edit_party_path(@party) %> |
 <%= link_to 'Back', parties_path %>
+
 
 
 <script type="text/javascript">
