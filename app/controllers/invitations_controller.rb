@@ -40,7 +40,27 @@ class InvitationsController < ApplicationController
   end
 
   def show
+    @party = Party.find(params[:party_id])
+    @invitation = Invitation.find(params[:id])
   end
+
+
+  # PATCH/PUT /parties/1
+  # PATCH/PUT /parties/1.json
+  def update
+    @party = Party.find(params[:party_id])
+    @invitation = Invitation.find(params[:id])
+    respond_to do |format|
+      if @invitation.update(invitation_params)
+        format.html { redirect_to party_invitation_url(@party,@invitation), notice: 'Thank you for confirming.' }
+        format.json { render :show, status: :ok, location: @invitation }
+      else
+        format.html { render :show }
+        format.json { render json: @invitation.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
 
   def callback
     @party = Party.find(1)
@@ -57,7 +77,7 @@ class InvitationsController < ApplicationController
   private
 
   def invitation_params
-    params.require(:invitation).permit(:party_id)
+    params.require(:invitation).permit(:party_id, :rsvp)
   end
 
   def user_params

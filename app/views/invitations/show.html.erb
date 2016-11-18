@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+<%= @party.theme %> | <%= @party.date %> | <%= @invitation.rsvp_status %>
+<h3>Create a wishlist </h3>
+<% if @invitation.rsvp == false %>
+<p>Sorry you can't make it.</p>
+<p>If you change your mind, you can always come back and let the host know you are coming:</p>
+<%=link_to "Will Attend",
+           party_invitation_path(@invitation,
+           :invitation => { :rsvp => true }),
+           :method=> :put ,
+           class:'btn btn-large btn-primary'%>
+ <%=link_to "Will Not Attend",
+            party_invitation_path(@invitation,
+            :invitation => { :rsvp => false }),
+            :method=> :put ,
+            class:'btn btn-large btn-primary'%>
+<% else%>
+  <% if @invitation.rsvp.nil? %>
+<p>Please RSVP by <%= @party.rsvp_deadline %>.</p>
+
+
+           <%=link_to "Will Attend",
+                      party_invitation_path(@invitation,
+                      :invitation => { :rsvp => true }),
+                      :method=> :put ,
+                      class:'btn btn-large btn-primary'%>
+            <%=link_to "Will Not Attend",
+                       party_invitation_path(@invitation,
+                       :invitation => { :rsvp => false }),
+                       :method=> :put ,
+                       class:'btn btn-large btn-primary'%>
+<% end %>
+<% end %>
