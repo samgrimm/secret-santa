@@ -38,7 +38,7 @@ gem 'omniauth-facebook' #gem fro facebook authentication
 gem 'gmaps4rails' #google maps gem
 gem 'underscore-rails' # dependency for google maps gem
 gem 'geocoder' #geocoding api to get latitude and longitude information for the models.
-gem "omnicontacts", :path => "../omnicontacts/omnicontacts-master"# gem to get contacts from gmail
+
 
 
 group :development, :test do
@@ -48,6 +48,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'capybara'
+  gem "omnicontacts", :path => "../omnicontacts/omnicontacts-master"# gem to get contacts from gmail - only in dev now since the gem is not fully working
 end
 
 group :test do
