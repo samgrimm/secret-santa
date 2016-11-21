@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161116205540) do
+ActiveRecord::Schema.define(version: 20161120192825) do
 
   create_table "invitations", force: :cascade do |t|
     t.integer  "user_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20161116205540) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "receipient_id"
+    t.string   "token"
     t.index ["party_id"], name: "index_invitations_on_party_id"
     t.index ["user_id"], name: "index_invitations_on_user_id"
   end

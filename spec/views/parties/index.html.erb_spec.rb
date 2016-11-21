@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe "parties/index", :type => :view do
   before(:each) do
     @user = FactoryGirl.create(:user)
+    sign_in @user
     assign(:parties, [
       Party.create!(
         :theme => "Theme",

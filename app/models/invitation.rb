@@ -9,6 +9,8 @@ class Invitation < ApplicationRecord
 
   validate :same_user_receipient
 
+  before_create :generate_token
+
   def same_user_receipient
     if self.user_id == self.receipient_id
       errors.add(:receipient, "can't be the same as the user")
@@ -23,5 +25,9 @@ class Invitation < ApplicationRecord
     else
       return "Not Attending"
     end
+  end
+
+  def generate_token
+    self.token = Digest::SHA1.hexdigest([Time.now, rand].join)
   end
 end

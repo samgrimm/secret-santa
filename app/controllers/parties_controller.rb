@@ -1,6 +1,7 @@
 class PartiesController < ApplicationController
   before_action :set_party, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :organizer?, only: [:show, :edit, :update, :destroy]
 
   # GET /parties
   # GET /parties.json
@@ -94,5 +95,12 @@ class PartiesController < ApplicationController
 
     def location_params
       params.require(:party).permit(:location_attributes =>[:address, :latitude, :longitude])
+    end
+
+    def organizer?
+      @party = Party.find(params[:id])
+      if @party.organizer != current_user
+        redirect_to root_url, notice: "You are not the party organizer"
+      end
     end
 end

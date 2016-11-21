@@ -1,5 +1,6 @@
 class InvitationsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user! , only: [:new, :create, :destroy ]
+  before_action :invitee?, only: [:show, :update ]
 
 
   def new
@@ -41,7 +42,6 @@ class InvitationsController < ApplicationController
 
   def show
     @party = Party.find(params[:party_id])
-    @invitation = Invitation.find(params[:id])
   end
 
 
@@ -49,7 +49,6 @@ class InvitationsController < ApplicationController
   # PATCH/PUT /parties/1.json
   def update
     @party = Party.find(params[:party_id])
-    @invitation = Invitation.find(params[:id])
     respond_to do |format|
       if @invitation.update(invitation_params)
         format.html { redirect_to party_invitation_url(@party,@invitation), notice: 'Thank you for confirming.' }
@@ -82,5 +81,17 @@ class InvitationsController < ApplicationController
 
   def user_params
     params.require(:invitation).permit(:user_attributes  => [:email,  :email_list =>[]])
+  end
+
+  def invitee?
+    @invitation = Invitation.where(id: params[:id]).or(Invitation.where(token: params[:id])).first
+    @invitee = @invitation.user
+    if params[:id].class == "Fixnum"
+      if @invitee != current_user
+        redirect_to root_url, notice: "You may not access this page"
+      end
+    else
+      return @invitation
+    end
   end
 end

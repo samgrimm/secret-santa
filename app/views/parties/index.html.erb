@@ -2,7 +2,7 @@
 
 <%= link_to 'New Party', new_party_path %>
 
-<h1>Parties I organize</h1>
+<h1>Parties I'm Organizing</h1>
 
 <table>
   <thead>
@@ -33,7 +33,7 @@
 </table>
 
 <br>
-<h1>My current Invitations</h1>
+<h1>My Invitations</h1>
 
 <table>
   <thead>
@@ -44,7 +44,6 @@
       <th>Rsvp deadline</th>
       <th>Address</th>
       <th>Gift Receipient</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -55,8 +54,8 @@
         <td><%= invite.party.date %></td>
         <td><%= invite.party.time %></td>
         <td><%= invite.party.rsvp_deadline %></td>
-        <td><%= invite.party.location.address unless party.location.nil? %></td>
-        <td><%= invite.receipient.email %></td>
+        <td><%= invite.party.location.address unless invite.party.location.nil? %></td>
+        <td><%= invite.receipient.email unless invite.receipient.nil? %></td>
       </tr>
     <% end %>
   </tbody>

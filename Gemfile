@@ -48,7 +48,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'capybara'
-  gem "omnicontacts", :path => "../omnicontacts/omnicontacts-master"# gem to get contacts from gmail - only in dev now since the gem is not fully working
+  gem "faker"
+#  gem "omnicontacts", :path => "../omnicontacts/omnicontacts-master"# gem to get contacts from gmail - only in dev now since the gem is not fully working
 end
 
 group :test do

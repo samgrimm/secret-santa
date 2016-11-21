@@ -5,12 +5,12 @@
 <p>Sorry you can't make it.</p>
 <p>If you change your mind, you can always come back and let the host know you are coming:</p>
 <%=link_to "Will Attend",
-           party_invitation_path(@invitation,
+           party_invitation_path(@party, @invitation,
            :invitation => { :rsvp => true }),
            :method=> :put ,
            class:'btn btn-large btn-primary'%>
  <%=link_to "Will Not Attend",
-            party_invitation_path(@invitation,
+            party_invitation_path(@party, @invitation,
             :invitation => { :rsvp => false }),
             :method=> :put ,
             class:'btn btn-large btn-primary'%>
@@ -20,12 +20,12 @@
 
 
            <%=link_to "Will Attend",
-                      party_invitation_path(@invitation,
+                      party_invitation_path(@party, @invitation,
                       :invitation => { :rsvp => true }),
                       :method=> :put ,
                       class:'btn btn-large btn-primary'%>
             <%=link_to "Will Not Attend",
-                       party_invitation_path(@invitation,
+                       party_invitation_path(@party, @invitation,
                        :invitation => { :rsvp => false }),
                        :method=> :put ,
                        class:'btn btn-large btn-primary'%>

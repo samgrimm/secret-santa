@@ -6,6 +6,7 @@ DatabaseCleaner.strategy = :truncation
 RSpec.describe Invitation, :type => :model do
   it { should respond_to :party }
   it { should respond_to :user }
+  it { should respond_to :token }
   it { should respond_to :rsvp_status }
   it { should belong_to :party }
   it { should belong_to :user }
@@ -48,5 +49,16 @@ RSpec.describe Invitation, :type => :model do
 
     invitation.update_attributes(rsvp: false)
     expect(invitation.rsvp_status).to eq("Not Attending")
+  end
+
+  it "should create a token when create_token is called" do
+    DatabaseCleaner.clean
+    user = FactoryGirl.create(:user)
+    party = FactoryGirl.create(:party, organizer: user)
+    invitee = FactoryGirl.create(:user, email: "invitee@example.com")
+    invitation = party.invitations.build(user_id: invitee.id)
+    invitation.save
+    expect(invitation.token).not_to be_nil
+    expect(invitation.token.length).to eq(40)
   end
 end
