@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<% if @item.amazon? %>
+<iframe style="width:120px;height:240px;"
+marginwidth="0" marginheight="0" scrolling="no" frameborder="0"
+src=<%=@item.iframe_url%>>
+</iframe>
+<% else %>
+
+
+<p>
+  <strong>Name:</strong>
+  <%=link_to @page.title, @item.url %>
+  <%= image_tag(@page.images.best, :alt => @page.description) %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @item.price %>
+</p>
+
+<%= link_to 'Edit', edit_wishlist_item_path(@item) %> |
+<%= link_to 'Back', wishlist_path(@wishlist) %>
+<% end %>

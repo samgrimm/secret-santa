@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  resources :wishlists do
+    resources :items
+  end
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   get 'static_pages/home'
   root 'static_pages#home'

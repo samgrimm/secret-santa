@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161120192825) do
+ActiveRecord::Schema.define(version: 20161123193859) do
 
   create_table "invitations", force: :cascade do |t|
     t.integer  "user_id"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20161120192825) do
     t.string   "token"
     t.index ["party_id"], name: "index_invitations_on_party_id"
     t.index ["user_id"], name: "index_invitations_on_user_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string   "name"
+    t.string   "url"
+    t.float    "price"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "wishlist_id"
+    t.index ["wishlist_id"], name: "index_items_on_wishlist_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -63,6 +73,14 @@ ActiveRecord::Schema.define(version: 20161120192825) do
     t.integer  "invitation_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "wishlists", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_wishlists_on_user_id"
   end
 
 end

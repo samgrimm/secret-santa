@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   has_many :parties, foreign_key: "organizer_id"
   has_many :invitations
+  has_many :wishlists
   belongs_to :invitation, foreign_key: "receipient_id", optional: true
 
 

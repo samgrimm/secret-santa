@@ -12,4 +12,5 @@ RSpec.describe User, :type => :model do
 
   it { should have_many :parties }
   it { should have_many :invitations }
+  it { should have_many :wishlists }
 end

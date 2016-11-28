@@ -39,6 +39,9 @@ gem 'gmaps4rails' #google maps gem
 gem 'underscore-rails' # dependency for google maps gem
 gem 'geocoder' #geocoding api to get latitude and longitude information for the models.
 
+#Gem for importing meta-data for the wishlists
+gem 'metainspector'
+
 
 
 group :development, :test do
