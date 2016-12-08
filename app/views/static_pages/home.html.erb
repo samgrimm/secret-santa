@@ -1,3 +1,127 @@
-<%= link_to 'Start Party', new_party_path %>
+<!-- Materialize version of jumbotron ------------------------------------------->
+<!------------------------------------------------------------------------------->
 
-<%= link_to 'Create a Wishlist', new_wishlist_path %>
+<div class="imageBanner">
+  <div class="responsive-img">
+    <div id="above"> <!-- took out text-center -->
+        <p class="p1 text-center">Welcome!</p>
+        <p class="p2 text-center">' Tis time to make merry...</p>
+    </div><!-- above -->
+  </div><!-- responsive-img -->
+</div><!-- imageBanner -->
+
+<!-- Start directives ----------------------------------------------------------->
+<!------------------------------------------------------------------------------->
+
+<div class="section no-pad-bot #fafafa grey lighten-5" id="startSection">
+    <div class="container">
+      <div><h3>...  How It Works ...</h3></div>
+        <!--   Icon Section   -->
+          <!-- ONE -->
+          <div class="row">
+            <div class="Uno col s10 offset-s1 m4">
+              <div class="card">
+                <div class="card-image">
+                  <%=image_tag("signup.jpg", class:"responsive-img")%>
+                </div>
+                <div class="card-content">
+                  <h4 class="center">Uno:</h4>
+                  <h5 class="center light">Sign-up now</h5>
+                </div>
+              </div>
+            </div>
+
+          <!-- TWO -->
+            <div class="Dos col s10 offset-s1 m4">
+              <div class="card">
+                <div class="card-image">
+                  <%=image_tag("pexels-balloons.jpeg", class:"responsive-img")%>
+                </div>
+                <div class="card-content">
+                  <h4 class="center">Dos:</h4>
+                  <h5 class="center light">Create a party</h5>
+                </div>
+              </div>
+            </div>
+
+          <!-- THREE -->
+            <div class="Tres col s10 offset-s1 m4">
+              <div class="card">
+                <div class="card-image">
+                  <%=image_tag("pexels-friends.jpg", class:"responsive-img")%>
+                </div>
+                <div class="card-content">
+                  <h4 class="center">Tres:</h4>
+                  <h5 class="center light">Invite friends</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        <br>
+        <br>
+      </div>
+  </div>
+
+<!-- Signup form --------------------------------------------------------------->
+<!------------------------------------------------------------------------------->
+
+  <div id="signupForm">
+    <div><h3>... Easily Sign-Up ...</h3></div>
+      <div class="container">
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="first_name" type="text" class="validate">
+                <label for="first_name">First Name</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="last_name" type="text" class="validate">
+                <label for="last_name">Last Name</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="email" type="email" class="validate">
+                <label for="email">Email</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="password" type="password" class="validate">
+                <label for="password">Password</label>
+                <br />
+              </div>
+              <div class="btn-containr">
+                <div class="center btn-submit">
+                  <button class="btn waves-effect waves-light" type="submit" name="submit">Submit
+                    <i id="paperPlane" class="material-icons right">send</i>
+                  </button>
+                </div>
+                <br />
+                <div class="center btn-submit">
+                  <button class="btn waves-effect waves-light" type="submit" name="fb">Sign in w/ FB
+                    <i id="paperPlane" class="material-icons right">send</i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+  </div>
+
+  <!-- About us ----------------------------------------------------------------->
+  <!----------------------------------------------------------------------------->
+
+  <div id="aboutUsSection" class="#fafafa grey lighten-5">
+    <div><h3>...  About Us ...</h3></div>
+    <p class="text-lighten-4">
+      We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.
+      We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.
+      We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.
+      We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.
+    </p>
+  </div>

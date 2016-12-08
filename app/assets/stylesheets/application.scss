@@ -2,3 +2,140 @@
 $primary-color: color("teal", "darken-4") !default;
 $secondary-color: color("red", "darken-4") !default;
 @import 'materialize';
+
+* {
+  font-family: 'Maitree', serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.25;
+}
+
+body h3 {
+  text-align: center;
+  font-family: 'Rochester', cursive;
+  font-weight: bold;
+}
+
+.mainNav {
+  padding-top: 1.25em;
+  padding-bottom: 0;
+  margin-bottom: -2.1em;
+}
+
+.brand-logo {
+  font-family: 'Rochester', cursive;
+  font-size: 2em;
+  line-height: 1em !important;
+}
+
+nav div ul li a {
+  font-size: 1.25em;
+  line-height: 1.5em !important;
+}
+
+#nav-mobile {
+  padding-top: 15px;
+}
+
+/*submit and fb*/
+button {
+  width: 14em;
+}
+
+#paperPlane {
+  line-height: 2em !important;
+}
+
+/*hamburger drop down menu icon in navbar*/
+.material-icons {
+  line-height: 1em !important;
+}
+
+.imageBanner {
+  margin-top: 0;
+  height: 25em;
+  background-image: image-url("banner.jpeg");
+  position: relative;
+  repeat: none;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  z-index:-100;
+}
+
+#above {
+  position: relative;
+  z-index: 20;
+}
+
+#above p {
+  color: white;
+  text-align: center;
+}
+
+@media screen and (max-width:399px) {
+  #above .p1 {font-size: 90px; font-family: 'Rochester', cursive; padding-top:1em;}
+  #above .p2 {font-size: 20px;}
+}
+
+@media screen and (min-width:400px) {
+  #above .p1 {font-size: 100px; font-family: 'Rochester', cursive; padding-top:1em;}
+  #above .p2 {font-size: 28px;}
+}
+
+@media screen and (min-width:763px) {
+  #above .p1 {font-size: 140px; font-family: 'Rochester', cursive; padding-top:.5em;}
+  #above .p2 {font-size: 40px;}
+}
+
+@media screen and (min-width:992px) {
+  #above .p1 {font-size: 175px; font-family: 'Rochester', cursive; padding-top:.2em;}
+  #above .p2 {font-size: 50px;}
+}
+
+#startSection {
+  position: relative;
+}
+
+.Uno h4, .Dos h4, .Tres h4{
+  font-family: 'Rochester', cursive;
+  font-weight: 400;
+}
+
+.Uno h5, .Dos h5, .Tres h5{
+  font-weight: 100;
+}
+
+#signupForm {
+  margin-top: 0;
+  padding-top: 2em;
+  padding-bottom: .5em;
+  color: black;
+  z-index: 2;
+}
+
+#signupForm label {
+  color: black;
+  font-size: 1.5em;
+}
+
+#aboutUsSection {
+  margin: 1.5em 4em 1.5em 4em;
+  padding: .5em 1em .5em 1em;
+  text-align: center;
+}
+
+.aboutUsSection h4, p {
+  color: black;
+}
+
+.page-footer {
+  margin: 0;
+  padding-top: .1em;
+  padding-bottom: .1em;
+}
+
+.page-footer a {
+  color: white;
+}
