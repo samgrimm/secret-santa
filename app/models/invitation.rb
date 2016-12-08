@@ -30,4 +30,12 @@ class Invitation < ApplicationRecord
   def generate_token
     self.token = Digest::SHA1.hexdigest([Time.now, rand].join)
   end
+
+  def send_invitation
+    PartyMailer.invitation(self).deliver
+  end
+
+  def send_reminder
+    PartyMailer.reminder(self).deliver
+  end
 end

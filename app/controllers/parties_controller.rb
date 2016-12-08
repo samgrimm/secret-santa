@@ -82,6 +82,16 @@ class PartiesController < ApplicationController
     redirect_to @party, notice: 'Names Drawn Successfully.'
   end
 
+  def send_invitations
+    @party = Party.find(params[:id])
+    @party.invitations.each do |invite|
+      invite.send_invitation
+    end
+    redirect_to @party, notice: 'Invitations Successfully Sent!'
+  end
+
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_party

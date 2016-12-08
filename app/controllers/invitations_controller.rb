@@ -73,6 +73,14 @@ class InvitationsController < ApplicationController
   def failure
     @errors = request.env['errors']
   end
+
+  def send_reminder
+    @invite = Invitation.find(params[:id])
+    @party = Party.find(params[:party_id])
+    @invite.send_reminder
+    redirect_to @party, notice: 'Reminder Successfully Sent!'
+  end
+
   private
 
   def invitation_params

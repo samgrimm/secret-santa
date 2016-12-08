@@ -22,7 +22,7 @@
 </p>
 
 <p>
-  <strong>Guest List | <%= link_to pluralize(@party.invitations.size, 'Guest'), party_invitations_path(@party) %> | <%= link_to 'Draw Names', draw_names_path(@party) %> | Send Invites </strong>
+  <strong>Guest List | <%= link_to pluralize(@party.invitations.size, 'Guest'), party_invitations_path(@party) %> | <%= link_to 'Draw Names', draw_names_path(@party) %> | <%= link_to 'Send Invitations', send_invitations_path %> </strong>
   <table>
     <thead>
       <tr>
@@ -40,6 +40,7 @@
           <td><%= invite.rsvp_status %></td>
           <td><%= invite.receipient.email unless invite.receipient.nil? %></td>
           <td><%= link_to 'See invite', party_invitation_path(@party, invite) %></td>
+          <td><%= link_to 'Send Reminder', party_send_reminder_path(@party, invite) %></td>
           <td><%= link_to 'Remove from Guest List', [@party, invite], method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
