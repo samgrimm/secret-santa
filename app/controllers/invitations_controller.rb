@@ -51,7 +51,7 @@ class InvitationsController < ApplicationController
     @party = Party.find(params[:party_id])
     respond_to do |format|
       if @invitation.update(invitation_params)
-        format.html { redirect_to party_invitation_url(@party,@invitation), notice: 'Thank you for confirming.' }
+        format.html { redirect_to :back, notice: 'Thank you for confirming.' }
         format.json { render :show, status: :ok, location: @invitation }
       else
         format.html { render :show }

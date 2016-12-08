@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <%= link_to 'New Party', new_party_path %>
 
@@ -42,6 +42,7 @@
       <th>Date</th>
       <th>Time</th>
       <th>Rsvp deadline</th>
+      <th>Rsvp status</th>
       <th>Address</th>
       <th>Gift Receipient</th>
     </tr>
@@ -54,6 +55,30 @@
         <td><%= invite.party.date %></td>
         <td><%= invite.party.time %></td>
         <td><%= invite.party.rsvp_deadline %></td>
+        <% if invite.rsvp %>
+          <td>Attending</td>
+        <% else %>
+          <% if invite.rsvp.nil? %>
+            <td><%=link_to "Will Attend",
+                       party_invitation_path(invite.party, invite,
+                       :invitation => { :rsvp => true }),
+                       :method=> :put ,
+                       class:'btn btn-small btn-primary'%>
+             <%=link_to "Will Not Attend",
+                        party_invitation_path(invite.party, invite,
+                        :invitation => { :rsvp => false }),
+                        :method=> :put ,
+                        class:'btn btn-small btn-primary'%></td>
+          <% else %>
+
+            <td>
+              Not attending - Changed your mind? <%=link_to "Will Attend",
+                       party_invitation_path(invite.party, invite,
+                       :invitation => { :rsvp => true }),
+                       :method=> :put ,
+                       class:'btn btn-small btn-primary'%>
+          <% end %>
+        <% end %>
         <td><%= invite.party.location.address unless invite.party.location.nil? %></td>
         <td><%= invite.receipient.email unless invite.receipient.nil? %></td>
       </tr>
