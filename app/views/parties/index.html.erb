@@ -1,7 +1,5 @@
 
 
-<%= link_to 'New Party', new_party_path %>
-
 <h1>Parties I'm Organizing</h1>
 
 <table>
@@ -45,6 +43,7 @@
       <th>Rsvp status</th>
       <th>Address</th>
       <th>Gift Receipient</th>
+      <th>View Party Details</th>
     </tr>
   </thead>
 
@@ -81,6 +80,7 @@
         <% end %>
         <td><%= invite.party.location.address unless invite.party.location.nil? %></td>
         <td><%= invite.receipient.email unless invite.receipient.nil? %></td>
+        <td><%= link_to 'Show', party_invitation_path(invite.party, invite) %></td>
       </tr>
     <% end %>
   </tbody>

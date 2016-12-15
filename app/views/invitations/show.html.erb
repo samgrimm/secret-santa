@@ -1,6 +1,7 @@
 
 <%= @party.theme %> | <%= @party.date %> | <%= @invitation.rsvp_status %>
-<h3>Create a wishlist </h3>
+<h3><%= link_to 'Create a wishlist', new_wishlist_path %> </h3>
+
 <% if @invitation.rsvp == false %>
 <p>Sorry you can't make it.</p>
 <p>If you change your mind, you can always come back and let the host know you are coming:</p>

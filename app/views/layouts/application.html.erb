@@ -6,6 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
@@ -16,10 +17,12 @@
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">... SecretSanta ...</a>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><%= link_to 'Login', new_user_session_path %></li>
-        <li><a href="#signupForm">SignUp</a></li>
-        <li><a href="#aboutUsSection">About</a></li>
-        <li><a href="#">Contact</a></li>
+        <% if user_signed_in? %>
+          <%= render 'layouts/signed_in_nav' %>
+        <% else %>
+          <%= render 'layouts/signed_out_nav' %>
+        <% end %>
+
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
@@ -61,5 +64,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5xQYBkfGUCndDrVrcUEgMw6ldd5puQ_0&services=geocoding&libraries=places,visualization">
   </script>
+
 
 </html>

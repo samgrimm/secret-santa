@@ -70,15 +70,8 @@ class PartiesController < ApplicationController
 
   def draw_names
     @party = Party.find(params[:id])
-    @party.invitations.each do |invite|
-      pool = @party.invitations.map(&:user).flatten
-      pool.delete(invite.user)
-      rando = pool.sample
-      while !invite.update_attributes(receipient: rando) do
-        new_rando = pool.sample
-        invite.update_attributes(receipient: new_rando)
-      end
-    end
+    @party.draw_names
+    
     redirect_to @party, notice: 'Names Drawn Successfully.'
   end
 
