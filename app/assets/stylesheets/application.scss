@@ -143,3 +143,55 @@ button {
 .page-footer a {
   color: white;
 }
+
+/*Parties page styles*//*Parties page styles*//*Parties page styles*//*Parties page styles*//*Parties page styles*//*Parties page styles*//*Parties page styles*//*Parties page styles*//*Parties page styles*/
+.parties_banner {
+  color: white;
+  font-family: 'Rochester', cursive; font-weight: bold;
+  line-height: 530%;
+  font-size: 4em;
+  padding-left: 35%;
+}
+
+@media screen and (min-width:992px) {
+  .parties_banner {font-family: 'Rochester', cursive; font-weight: bold; padding-left:42%;}
+}
+
+.partiesCalendar {
+  margin-top: 2em;
+  margin-left: 43.25%;
+}
+
+.imageBannerParties {
+  height: 25em;
+  background-image: url("./images/anise.jpg");
+  background-size: cover;
+  repeat: none;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin-top: -4em;
+  padding-top: 0;
+}
+
+.partyList {
+  margin-top: 2em;
+  margin-bottom: 20em; /* hard-coded for now to get footer on bottom*/
+}
+
+.rowDatepicker {
+  margin-top: 2em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
