@@ -20,6 +20,7 @@ body h3 {
   padding-top: 1.25em;
   padding-bottom: 0;
   margin-bottom: -2.1em;
+  height: 60px;
 }
 
 .brand-logo {
@@ -120,6 +121,10 @@ button {
   font-size: 1.5em;
 }
 
+button {
+  background-color: #11a194 !important;
+}
+
 #aboutUsSection {
   margin: 1.5em 4em 1.5em 4em;
   padding: .5em 1em .5em 1em;
@@ -130,7 +135,7 @@ button {
   color: black;
 }
 
-.page-footer {
+footer {
   margin: 0;
   padding-top: .1em;
   padding-bottom: .1em;
@@ -139,3 +144,56 @@ button {
 .page-footer a {
   color: white;
 }
+
+/*Parties page styles*//*Parties page styles*//*Parties page styles*//*Parties page styles*//*Parties page styles*//*Parties page styles*//*Parties page styles*//*Parties page styles*//*Parties page styles*/
+
+.parties_banner {
+  color: white;
+  font-family: 'Rochester', cursive; font-weight: bold;
+  line-height: 530%;
+  font-size: 4em;
+  padding-left: 35%;
+}
+
+@media screen and (min-width:992px) {
+  .parties_banner {font-family: 'Rochester', cursive; font-weight: bold; padding-left:42%;}
+}
+
+.partiesCalendar {
+  margin-top: 2em;
+  margin-left: 43.25%;
+}
+
+.imageBannerParties {
+  height: 25em;
+  background-image: url("anise.jpg");
+  background-size: cover;
+  repeat: none;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin-top: 2.1em;
+  padding-top: 0;
+}
+
+.partyList {
+  margin-top: 2em;
+  margin-bottom: 20em; /* hard-coded for now to get footer on bottom*/
+}
+
+.rowDatepicker {
+  margin-top: 2em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
