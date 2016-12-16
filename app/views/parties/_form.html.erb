@@ -17,8 +17,13 @@
   </div>
 
   <div class="field">
+    <%= f.label :spending_limit %>
+    <%= f.text_field :spending_limit %>
+  </div>
+
+  <div class="field">
     <%= f.label :date %>
-    <%= f.date_select :date %>
+    <%= f.date_select :date , class:"datepicker"%>
   </div>
 
   <div class="field">

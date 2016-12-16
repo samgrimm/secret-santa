@@ -71,7 +71,7 @@ class PartiesController < ApplicationController
   def draw_names
     @party = Party.find(params[:id])
     @party.draw_names
-    
+
     redirect_to @party, notice: 'Names Drawn Successfully.'
   end
 
@@ -93,7 +93,7 @@ class PartiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def party_params
-      params.require(:party).permit(:theme, :date, :time, :rsvp_deadline, :address)
+      params.require(:party).permit(:theme, :date, :time, :rsvp_deadline, :address, :spending_limit)
     end
 
     def location_params
