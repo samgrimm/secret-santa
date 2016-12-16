@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161123193859) do
+ActiveRecord::Schema.define(version: 20161215213507) do
 
   create_table "invitations", force: :cascade do |t|
     t.integer  "user_id"
@@ -50,9 +50,10 @@ ActiveRecord::Schema.define(version: 20161123193859) do
     t.time     "time"
     t.date     "rsvp_deadline"
     t.string   "address"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.integer  "organizer_id"
+    t.decimal  "spending_limit", precision: 8, scale: 2
   end
 
   create_table "users", force: :cascade do |t|

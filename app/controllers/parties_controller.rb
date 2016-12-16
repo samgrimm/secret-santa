@@ -70,15 +70,8 @@ class PartiesController < ApplicationController
 
   def draw_names
     @party = Party.find(params[:id])
-    @party.invitations.each do |invite|
-      pool = @party.invitations.map(&:user).flatten
-      pool.delete(invite.user)
-      rando = pool.sample
-      while !invite.update_attributes(receipient: rando) do
-        new_rando = pool.sample
-        invite.update_attributes(receipient: new_rando)
-      end
-    end
+    @party.draw_names
+
     redirect_to @party, notice: 'Names Drawn Successfully.'
   end
 
@@ -100,7 +93,7 @@ class PartiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def party_params
-      params.require(:party).permit(:theme, :date, :time, :rsvp_deadline, :address)
+      params.require(:party).permit(:theme, :date, :time, :rsvp_deadline, :address, :spending_limit)
     end
 
     def location_params

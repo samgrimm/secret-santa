@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   get 'static_pages/home'
   root 'static_pages#home'
+  
   resources :parties do
     resources :invitations
     get '/send_reminder/:id' => "invitations#send_reminder", as: :send_reminder
