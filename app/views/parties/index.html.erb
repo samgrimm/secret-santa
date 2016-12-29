@@ -13,77 +13,27 @@
 </div>
 
           <div class="row partyList">
+            <% @parties.each do |party| %>
             <div class="col s10 offset-s1 m3">
               <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                  <%=image_tag("reindeer.jpg")%>
+                  <%=image_tag("reindeer.jpg", class:"activator")%>
                 </div>
                 <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">Party 1
+                    <span class="card-title activator grey-text text-darken-4"><%= party.theme %>
                     <i class="material-icons right">more_vert</i>
                     </span>
-                  <p><a href="#">Link to single party view</a></p>
+                  <p><%= link_to 'Show', party %></p>
                 </div>
                 <div class="card-reveal">
-                  <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                  <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                  <span class="card-title grey-text text-darken-4"><%= party.theme %><i class="material-icons right">close</i></span>
+                  <p><%= party.date %> - <%= party.time %></p>
+                  <p><%= party.location.address unless party.location.nil? %></p>
                 </div>
               </div>
               </div>
+            <% end %>
 
-            <div class="col s10 offset-s1 m3">
-              <div class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                  <%=image_tag("poinsettia.jpg")%>
-                </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">Party 2
-                    <i class="material-icons right">more_vert</i>
-                    </span>
-                  <p><a href="#">Link to single party view</a></p>
-                </div>
-                <div class="card-reveal">
-                  <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                  <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col s10 offset-s1 m3">
-              <div class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                  <%=image_tag("christmasdinner.jpg")%>
-                </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">+Party
-                    <i class="material-icons right">more_vert</i>
-                    </span>
-                  <p><a href="#">Link to single party view</a></p>
-                </div>
-                <div class="card-reveal">
-                  <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                  <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col s10 offset-s1 m3">
-              <div class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                  <%=image_tag("christmasdinner.jpg")%>
-                </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">+Party
-                    <i class="material-icons right">more_vert</i>
-                    </span>
-                  <p><a href="#">Link to single party view</a></p>
-                </div>
-                <div class="card-reveal">
-                  <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                  <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                </div>
-              </div>
-            </div>
           </div><!-- row -->
 
 <h1>Parties I'm Organizing</h1>

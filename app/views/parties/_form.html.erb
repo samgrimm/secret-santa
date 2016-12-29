@@ -1,49 +1,53 @@
-<%= form_for(party) do |f| %>
-  <% if party.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(party.errors.count, "error") %> prohibited this party from being saved:</h2>
+<div class="container">
 
-      <ul>
-      <% party.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+
+  <%= form_for(party) do |f| %>
+    <% if party.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(party.errors.count, "error") %> prohibited this party from being saved:</h2>
+
+        <ul>
+        <% party.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :theme %>
+      <%= f.text_field :theme %>
+    </div>
+
+    <div class="field">
+      <%= f.label :spending_limit %>
+      <%= f.text_field :spending_limit %>
+    </div>
+
+    <div class="field">
+      <%= f.label :date %><br>
+      <%= f.date_field :date, class: "datepicker" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :time %>
+      <%= f.time_field :time, class:"timepicker" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :rsvp_deadline %>
+      <%= f.date_field :rsvp_deadline, class: "datepicker" %>
+    </div>
+
+    <div class="field">
+      <%= f.fields_for :location_attributes do |ff| %>
+        <%= ff.label :address %>
+        <%= ff.text_field :address ,  placeholder: "enter party location" %>
       <% end %>
-      </ul>
+    </div>
+
+    <div class="actions">
+      <%= f.submit class:'btn btn-small btn-primary' %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :theme %>
-    <%= f.text_field :theme %>
-  </div>
-
-  <div class="field">
-    <%= f.label :spending_limit %>
-    <%= f.text_field :spending_limit %>
-  </div>
-
-  <div class="field">
-    <%= f.label :date %>
-    <%= f.date_select :date , class:"datepicker"%>
-  </div>
-
-  <div class="field">
-    <%= f.label :time %>
-    <%= f.time_select :time %>
-  </div>
-
-  <div class="field">
-    <%= f.label :rsvp_deadline %>
-    <%= f.date_select :rsvp_deadline %>
-  </div>
-
-  <div class="field">
-    <%= f.fields_for :location_attributes do |ff| %>
-      <%= ff.label :address %>
-      <%= ff.text_field :address ,  placeholder: "enter party location" %>
-    <% end %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

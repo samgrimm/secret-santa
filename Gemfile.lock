@@ -158,6 +158,8 @@ GEM
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
     pg (0.19.0)
+    pickadate-rails (3.5.6.0)
+      railties (>= 3.1.0)
     puma (3.6.0)
     rack (2.0.1)
     rack-test (0.6.3)
@@ -278,6 +280,7 @@ DEPENDENCIES
   metainspector
   omniauth-facebook
   pg
+  pickadate-rails
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
   rails-controller-testing
